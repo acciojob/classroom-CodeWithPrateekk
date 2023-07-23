@@ -37,13 +37,19 @@ public class StudentRepository {
         if(!teacherDb.containsKey(teacher))
             return "Teacher does not exists";
 
-        if (studentTeacherPairDb.containsKey(teacher))
-            studentTeacherPairDb.get(teacher).add(student);
+        if(studentTeacherPairDb.containsKey(teacher)) {
+            List<String> existingStudents = studentTeacherPairDb.get(teacher);
+            existingStudents.add(student);
+            studentTeacherPairDb.put(teacher, existingStudents);
 
-        List<String> s = new ArrayList<>();
-        s.add(student);
+        }
+        else{
+            List<String> s = new ArrayList<>();
+            s.add(student);
 
-        studentTeacherPairDb.put(teacher,s);
+            studentTeacherPairDb.put(teacher,s);
+
+        }
         return "New student-teacher pair added successfully";
     }
 
@@ -51,7 +57,7 @@ public class StudentRepository {
         if(!studentDb.containsKey(name))
             return null;
 
-            return studentDb.get(name);
+        return studentDb.get(name);
     }
 
     public Teacher getTeacherByName(String name) {
@@ -91,7 +97,7 @@ public class StudentRepository {
 
     public List<String> getStudentsByTeacherName(String teacher) {
 
-        if(studentTeacherPairDb.containsKey(teacher)){
+        if(!studentTeacherPairDb.containsKey(teacher)){
             return new ArrayList<>();
         }
 
