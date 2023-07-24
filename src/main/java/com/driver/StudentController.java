@@ -69,6 +69,10 @@ public class StudentController {
     public ResponseEntity<List<String>> getStudentsByTeacherName(@PathVariable String teacher){
         List<String> students = studentService.getStudentsByTeacherName(teacher); // Assign list of student by calling service layer method
 
+//        if(students.size()==0) {
+//            return new ResponseEntity("Teacher does not exists",HttpStatus.NOT_FOUND);
+//        }
+//
         return new ResponseEntity<>(students, HttpStatus.CREATED);
     }
 

@@ -37,18 +37,15 @@ public class StudentRepository {
         if(!teacherDb.containsKey(teacher))
             return "Teacher does not exists";
 
+        List<String> students = new ArrayList<>();
         if(studentTeacherPairDb.containsKey(teacher)) {
-            List<String> existingStudents = studentTeacherPairDb.get(teacher);
-            existingStudents.add(student);
-            studentTeacherPairDb.put(teacher, existingStudents);
-
+            students = studentTeacherPairDb.get(teacher);
+            students.add(student);
+            studentTeacherPairDb.put(teacher,students);
         }
-        else{
-            List<String> s = new ArrayList<>();
-            s.add(student);
-
-            studentTeacherPairDb.put(teacher,s);
-
+        else {
+            students.add(student);
+            studentTeacherPairDb.put(teacher, students);
         }
         return "New student-teacher pair added successfully";
     }
