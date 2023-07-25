@@ -85,11 +85,13 @@ public class StudentRepository {
     }
 
     public String deleteAllTeachers() {
-        if(teacherDb.isEmpty())
+        if (teacherDb.size() == 0)
             return "No teacher is present in the database";
+        else {
+            teacherDb = new HashMap<>();
 
-        teacherDb = new HashMap<>();
-        return "All teachers deleted successfully";
+            return "All teachers deleted successfully";
+        }
     }
 
     public List<String> getStudentsByTeacherName(String teacher) {
