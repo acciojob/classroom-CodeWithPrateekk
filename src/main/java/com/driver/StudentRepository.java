@@ -40,8 +40,11 @@ public class StudentRepository {
         List<String> students = new ArrayList<>();
         if(studentTeacherPairDb.containsKey(teacher)){
             students = studentTeacherPairDb.get(teacher);
-            students.add(student);
-            studentTeacherPairDb.put(teacher,students);
+            if(!students.contains(student)){
+                students.add(student);
+                studentTeacherPairDb.put(teacher,students);
+            }
+
         }
         else {
             students.add(student);
