@@ -31,11 +31,11 @@ public class StudentRepository {
 
 
     public String addStudentTeacherPair(String student, String teacher) {
-//        if(!studentDb.containsKey(student))
-//            return "Student does not exists";
-//
-//        if(!teacherDb.containsKey(teacher))
-//            return "Teacher does not exists";
+        if(!studentDb.containsKey(student))
+            return "Student does not exists";
+
+        if(!teacherDb.containsKey(teacher))
+            return "Teacher does not exists";
 
         List<String> students = new ArrayList<>();
         if(studentTeacherPairDb.containsKey(teacher)){
