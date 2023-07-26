@@ -50,9 +50,10 @@ public class StudentRepository {
         return "New student-teacher pair added successfully";
     }
 
-    public Student addStudentByName(String name) {
+    public Student getStudentByName(String name) {
         if(!studentDb.containsKey(name))
             return null;
+
 
         return studentDb.get(name);
     }
@@ -101,5 +102,12 @@ public class StudentRepository {
         }
 
         return studentTeacherPairDb.get(teacher);
+    }
+
+    public Student addStudentByName(String name) {
+        Student student = new Student();
+        student.setName(name);
+        studentDb.put(name,student);
+        return student;
     }
 }
