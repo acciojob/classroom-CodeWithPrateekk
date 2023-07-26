@@ -47,7 +47,7 @@ public class StudentController {
 
     @GetMapping("/get-student-by-name/{name}")
     public ResponseEntity<Student> getStudentByName(@PathVariable String name){
-        Student student = studentService.addStudentByName(name); // Assign student by calling service layer method
+        Student student = studentService.getStudentByName(name); // Assign student by calling service layer method
 
         if(student==null)
             return new ResponseEntity("Student doesn't exists",HttpStatus.NOT_FOUND);

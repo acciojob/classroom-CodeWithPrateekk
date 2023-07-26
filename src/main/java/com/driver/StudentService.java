@@ -23,9 +23,7 @@ public class StudentService {
         return studentRepository.addStudentTeacherPair(student,teacher);
     }
 
-    public Student addStudentByName(String name) {
-        return studentRepository.addStudentByName(name);
-    }
+
 
     public Teacher getTeacherByName(String name) {
         return studentRepository.getTeacherByName(name);
@@ -46,5 +44,9 @@ public class StudentService {
     public List<String> getStudentsByTeacherName(String teacher) {
 
         return studentRepository.getStudentsByTeacherName(teacher);
+    }
+
+    public Student getStudentByName(String name) {
+        return studentRepository.getStudentByName(name);
     }
 }

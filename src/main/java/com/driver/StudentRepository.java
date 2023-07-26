@@ -38,7 +38,7 @@ public class StudentRepository {
             return "Teacher does not exists";
 
         List<String> students = new ArrayList<>();
-        if(studentTeacherPairDb.containsKey(teacher)) {
+        if(studentTeacherPairDb.containsKey(teacher)){
             students = studentTeacherPairDb.get(teacher);
             students.add(student);
             studentTeacherPairDb.put(teacher,students);
@@ -104,10 +104,5 @@ public class StudentRepository {
         return studentTeacherPairDb.get(teacher);
     }
 
-    public Student addStudentByName(String name) {
-        Student student = new Student();
-        student.setName(name);
-        studentDb.put(name,student);
-        return student;
-    }
+
 }
