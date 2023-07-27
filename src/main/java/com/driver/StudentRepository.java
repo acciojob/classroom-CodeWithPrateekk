@@ -42,9 +42,8 @@ public class StudentRepository {
             students = studentTeacherPairDb.get(teacher);
             if(!students.contains(student)){
                 students.add(student);
-                studentTeacherPairDb.put(teacher,students);
             }
-
+            studentTeacherPairDb.put(teacher,students);
         }
         else {
             students.add(student);
